@@ -28,7 +28,7 @@ if(isset($_POST['submit']))
 
     if($stmt->execute())
     {
-        $_SESSION['id_user'] = $user['id_user']; //ini diganti jadi id_user
+        $_SESSION['id_user'] = $user['id_user'];
 
         header('Location: /WASHY/login.php');
         exit;
@@ -52,7 +52,7 @@ if(isset($_POST['submit']))
         <div class="register">
             <div class="register-card">
                 <img src="/WASHY/img/Logo.png">
-                <h4>Create Your Account</h4>
+                <h1>Create Your Account</h1>
 
                 <form action="/WASHY/register.php" method="POST">
                     <div class="form-section">

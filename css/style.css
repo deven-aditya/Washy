@@ -496,39 +496,63 @@ option {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 150vh; 
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .register-card {
-    height: 965px;
-    width: 750px;
+    height: auto;
+    width: 530px;
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 30px;
+    text-align: left;
 }
 
 .register-card img{
-    margin-top: 15px;
-    margin-left: -600px;
     width: 107px;
     height: 42px;
-    justify-content: left ;
+}
+
+.register-card h1 {
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.register-card h4 {
+    font-weight: 300;
+    text-align: center;
 }
 
 .register input {
     border: 0.78px solid #00B4B7;
     border-radius: 8px;
     background-color: #F1FCFA;
-    width: 365px;
-    height: 57px;
+    height: 40px;
     padding: 0 10px;
     font-size: 18px;
     margin-top: 20px;
 }
 
-.input-name {
-    display: flex;
-    
+.register button {
+    background-color: #00B4B7;
+    width: 144px;
+    height: 50px;
+    color: #ffffff;
+    font-size: 20px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 8px;
+}
+
+.register button:hover {
+    background-color: #84c4c7;
+}
+
+.register a {
+    color: #000;
 }
 
 /*ACCOUNT*/
@@ -558,7 +582,6 @@ option {
     font-size: 16px;
     font-weight: 500;
     margin-right: 15px;
-    margin-top: -20px;
     width: 180px;
     height: 50px;
     display: flex;
