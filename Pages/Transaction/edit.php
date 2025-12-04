@@ -24,6 +24,7 @@
         <link rel="icon" class="icon-logo" href="/WASHY/img/Icon.png" type="image/png"/>
         <link rel="stylesheet" href="/WASHY/css/style.css" type="text/css" media="screen" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <script src="/WASHY/js/script.js"></script>
     </head>
     <body>
         <div class="sidebar"> <!--jgn diubah-->
@@ -102,19 +103,19 @@
                     <?= $trans[0]['first_name'].' '. $trans[0]['last_name'] ?>" 
                     
                     <label for="service_type">Service Type</label><br>
-                    <select class="dropdown" name="service_type">
-                        <option value="" disabled selected hidden>Choose Service Type</option>
+                    <select class="dropdown" name="service_type" id="service_type" onchange="countPrice(this.value, document.getElementById('weight').value)">
+                        <option value="null">Choose Service Type</option>
                         <option value="Regular">Regular</option>
                         <option value="Express">Express</option>
                     </select><br><br>
 
                     <label for="weight">Laundry Weight</label><br>
-                    <input type="weight" name="weight" class="input-box" placeholder="Input Laundry Weight"/>
+                    <input type="text" name="weight" class="input-box" placeholder="Input Laundry Weight" oninput="countPrice(document.getElementById('service_type').value, this.value)" />
                     <br><br>
 
                     <div class="price">
                         <h4>Total Price</h4>
-                        <h1><?= $trans[0]['price'] ?></h1>
+                        <h1 id="count_price">Rp <?= $trans[0]['price'] ?></h1>
                     </div><br>
 
                     <input type="submit" name="submit" class="add-btn"/>
