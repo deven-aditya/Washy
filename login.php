@@ -24,7 +24,6 @@
             $errorMsg =  "Invalid Username or Password";
         }
     }
-
 ?>
 
 <!DOCTYPE html >

@@ -35,12 +35,19 @@ function validateEmail(email)
     return regex.test(email);
 }
 
+function validatePassword(password)
+{
+    const regex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+    return regex.test(password);
+}
+
 function fn_ValRegister()
 {
     var sMsg = "";
     const errorBox = document.getElementById("errorMsgReg");
     errorBox.innerHTML = "";
 
+    //cek kosong
     if(document.getElementById("conf_password").value == "")
     {
         sMsg = "\nYou haven't filled in your Confirmation Password";
@@ -87,6 +94,21 @@ function fn_ValRegister()
         sMsg = "\nYou haven't filled in anything";
     }
 
+    if (!validateEmail(document.getElementById("email_address").value) && document.getElementById("email_address").value != "")
+    {
+        sMsg = "Please enter a valid email address";
+    }
+
+    if(!validatePassword(document.getElementById("password").value) && document.getElementById("password").value != "")
+    {
+        sMsg = "Password must be at least 8 characters and contain letters and numbers";
+    }
+
+    if(document.getElementById("password").value !== document.getElementById("conf_password").value)
+    {
+        sMsg = "Password and Confirmation Password do not match";
+    }
+
     if(sMsg != "")
     {
         errorBox.innerHTML = sMsg;
@@ -95,4 +117,26 @@ function fn_ValRegister()
     {
         return true;
     }
+}
+
+function checkUsernameAvail()
+{
+    var sMsg = "";
+    const errorBox = document.getElementById("errorMsgReg");
+    errorBox.innerHTML = "";
+
+    const username = document.getElementById("username").value;
+
+    if(document.getElementById("username").value == "")
+    {
+        errorBox.innerHTML = "";
+        return;
+    }
+
+    fetch(`/WASHY/check_user.php?username=${username}`).then(response => response.text)
+}
+
+function checkEmailAvail()
+{
+
 }

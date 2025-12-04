@@ -1,7 +1,7 @@
 <?php
 
 require "db.php";
-session_start();
+session_start(); 
 
 if(isset($_POST['submit']))
 {
@@ -14,9 +14,29 @@ if(isset($_POST['submit']))
     $confirm_password = $_POST['conf_password'];
     $default_photo = "default.png";
 
-    if($password !== $confirm_password)
-    {
-        echo '<script>window.history.back()</script>';
+    $_SESSION['old'] = $_POST;
+
+    //cek username
+    $checkUser = $conn->prepare("SELECT id_user FROM users WHERE username = ?");
+    $checkUser->bind_param("s", $username);
+    $checkUser->execute();
+    $resultUser = $checkUser->get_result();
+
+    if($resultUser->num_rows > 0){
+        $_SESSION['errorMsg'] = "Username is already used.";
+        header("Location: /WASHY/register.php");
+        exit;
+    }
+
+    //cek email
+    $checkEmail = $conn->prepare("SELECT id_user FROM users WHERE email_address = ?");
+    $checkEmail->bind_param("s", $email_address);
+    $checkEmail->execute();
+    $resultEmail = $checkEmail->get_result();
+
+    if($resultEmail->num_rows > 0){
+        $_SESSION['errorMsg'] = "Email Address is already registered.";
+        header("Location: /WASHY/register.php");
         exit;
     }
 
@@ -37,6 +57,12 @@ if(isset($_POST['submit']))
     }
 }
 
+?>
+
+<?php
+    $old = $_SESSION['old'] ?? [];
+    $errorMsg = $_SESSION['errorMsg'] ?? "";
+    unset($_SESSION['errorMsg']);
 ?>
 
 <!DOCTYPE html >
@@ -60,23 +86,23 @@ if(isset($_POST['submit']))
                         <div class="input-name">
                             <div class="input-group">
                                 <label for="first_name">First Name</label><br>
-                                <input type="text" name="first_name" id="first_name" class="input-box-name" placeholder="First Name" required/>
+                                <input type="text" name="first_name" id="first_name" class="input-box-name" placeholder="First Name" value="<?= $old['first_name']  ?? '' ?>"required/>
                             </div>
                             
                             <div class="input-group">
                                 <label for="last_name">Last Name</label><br>
-                                <input type="text" name="last_name" id="last_name" class="input-box-name" placeholder="Last Name" required/>
+                                <input type="text" name="last_name" id="last_name" class="input-box-name" placeholder="Last Name" value="<?= $old['last_name']  ?? '' ?>"required/>
                             </div>
                         </div><br>
 
                         <label for="email_address">Email Address</label><br>
-                        <input type="text" name="email_address" id="email_address" class="input-box" placeholder="Input Email Address" required/><br><br>
+                        <input type="text" name="email_address" id="email_address" class="input-box" placeholder="Input Email Address" value="<?= $old['email_address']  ?? '' ?>" required/><br><br>
 
                         <label for="phone_number">Phone Number</label><br>
-                        <input type="text" name="phone_number" id="phone_number" class="input-box" placeholder="Input Phone Number" required/><br><br>
+                        <input type="text" name="phone_number" id="phone_number" class="input-box" placeholder="Input Phone Number" value="<?= $old['phone_number']  ?? '' ?>" required/><br><br>
 
                         <label for="username">Username</label><br>
-                        <input type="text" name="username" id="username" class="input-box" placeholder="Input Username" required/><br><br>
+                        <input type="text" name="username" id="username" class="input-box" placeholder="Input Username" value="<?= $old['username']  ?? '' ?>"/><br><br>
 
                         <label for="password">Password</label><br>
                         <input type="password" name="password" id="password" class="input-box" placeholder="Input Password" required/><br><br>
@@ -84,7 +110,9 @@ if(isset($_POST['submit']))
                         <label for="conf_password">Confirm Password</label><br>
                         <input type="password" name="conf_password" id="conf_password" class="input-box" placeholder="Confirm Password" required/><br><br><br>
 
-                        <div id="errorMsgReg" style="color:red; text-align:center;"></div>
+                        <div id="errorMsgReg" style="color:red; text-align:center;">
+                            <?= $errorMsg ?>
+                        </div>
 
                         <button type="submit" name="submit" class="add-btn" value="Register" onclick="return fn_ValRegister();">Register</button>
                     </div>
