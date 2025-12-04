@@ -37,7 +37,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
     </head>
     <body>
-        <div class="sidebar"> <!--jgn diubah-->
+        <div class="sidebar"> <!--jgn diubahh-->
             <img class="logo" src="/WASHY/img/Logo.png"/>
 
             <div class="button-sidebar">
