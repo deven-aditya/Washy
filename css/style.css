@@ -412,8 +412,9 @@ option {
     border: 1px solid #333;
     border-radius: 10px;
     width: 200px;
-    height: 300px;
+    height: 280px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -423,11 +424,31 @@ option {
     border: 1px solid #333;
     border-radius: 10px;
     width: 200px;
-    height: 300px;
+    height: 280px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
+}
+
+.report-icon {
+    margin-top: 20px;
+    width: 50px;
+}
+
+.reports h1 {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.reports h2 {
+    margin-top: -10px;
+    font-size: 50px;
+}
+
+.income-report {
+    font-size: 40px;
 }
 
 /*LOGIN*/
