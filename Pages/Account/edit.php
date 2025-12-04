@@ -102,7 +102,7 @@
                 <form action="/WASHY/Pages/Account/edit-proses.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $id_user; ?>">
                     
-                    <img class="profile" src="/WASHY/uploads/<?php echo $data["profile_photo"]; ?>" alt="Profile Photo" style="width: 100px; "><br>
+                    <img class="profile" src="/WASHY/uploads/<?php echo $data["profile_photo"]; ?>" alt="Profile Photo"><br>
                     <input type="file" name="profile_photo">
                     
                     <br><br>
