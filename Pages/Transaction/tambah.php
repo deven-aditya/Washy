@@ -94,7 +94,7 @@
 
                     <div class="price">
                         <h4>Total Price</h4>
-                        <h1>Rp 21.000,00</h1>
+                        <h1>Rp 23.000,00</h1>
                     </div><br>
 
                     <input type="submit" class="add-btn"/>
