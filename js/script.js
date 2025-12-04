@@ -119,24 +119,17 @@ function fn_ValRegister()
     }
 }
 
-function checkUsernameAvail()
+function countPrice(service_type, weight)
 {
-    var sMsg = "";
-    const errorBox = document.getElementById("errorMsgReg");
-    errorBox.innerHTML = "";
-
-    const username = document.getElementById("username").value;
-
-    if(document.getElementById("username").value == "")
+    let price = 0;
+    const priceBox = document.getElementById("count_price");
+    if(service_type === 'Express')
     {
-        errorBox.innerHTML = "";
-        return;
-    }
+        price = 12000 * weight;
+    } else if(service_type === 'Regular')
+    {
+        price = 6000 * weight;
+    } 
 
-    fetch(`/WASHY/check_user.php?username=${username}`).then(response => response.text)
-}
-
-function checkEmailAvail()
-{
-
+    priceBox.innerHTML = "Rp " + price.toLocaleString();
 }

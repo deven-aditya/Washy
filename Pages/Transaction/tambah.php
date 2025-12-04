@@ -99,19 +99,19 @@
                     </select><br><br>
 
                     <label for="service_type">Service Type</label><br>
-                    <select class="dropdown" name="service_type">
+                    <select class="dropdown" name="service_type" id="service_type" onchange="countPrice(this.value, document.getElementById('weight').value)">
                         <option value="null">Choose Service Type</option>
                         <option value="Regular">Regular</option>
                         <option value="Express">Express</option>
                     </select><br><br>
 
                     <label for="weight">Laundry Weight</label><br>
-                    <input type="text" name="weight" class="input-box" placeholder="Input Laundry Weight"/>
+                    <input type="text" name="weight" class="input-box" placeholder="Input Laundry Weight" oninput="countPrice(document.getElementById('service_type').value, this.value)" />
                     <br><br>
 
                     <div class="price">
                         <h4>Total Price</h4>
-                        <h1>Rp 26.000,00</h1>
+                        <h1 id="count_price">Rp 0</h1>
                     </div><br>
 
                     <input type="submit" class="add-btn"/>
