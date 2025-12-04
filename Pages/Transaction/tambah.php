@@ -1,3 +1,18 @@
+<?php
+    include("../../db.php");
+    $sql="SELECT first_name, last_name FROM Customer";
+
+    $query=$conn->query($sql);
+
+    $customer=[];
+
+    if($query->num_rows!=0){
+        while($row=$query->fetch_assoc()){
+            $customer[]=$row;
+        }
+    }
+?>
+
 <!DOCTYPE html >
 <html>
     <head>
@@ -78,8 +93,9 @@
                     <label for="nama_customer">Customer</label><br>
                     <select class="dropdown" name="nama_customer">
                         <option value="null">Choose Customer</option>
-                        <option value="Deven Aditya">Deven Aditya</option>
-                        <option value="Ferrincia Avril">Ferrincia Avril</option>
+                        <?php foreach($customer as $c): ?>
+                        <option value="<?php echo $c['first_name'].' '. $c['last_name']?>"><?= $c['first_name'].' '. $c['last_name'] ?></option>
+                        <?php  endforeach; ?>
                     </select><br><br>
 
                     <label for="service_type">Service Type</label><br>
