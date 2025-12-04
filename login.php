@@ -3,8 +3,11 @@
     require "db.php";
     session_start();
 
+    $errorMsg = "";    
+
     if(isset($_POST['username'], $_POST['password']))
     {
+        
         $username = $_POST['username'];
         $password = $_POST['password'];
 
@@ -18,7 +21,7 @@
             header('Location: /WASHY/Pages/Dashboard/index.php');
             exit;
         } else {
-            echo '<script>window.history.back()</script>';
+            $errorMsg =  "Username atau password salah!";
         }
     }
 
@@ -32,17 +35,23 @@
         <link rel="icon" class="icon-logo" href="/WASHY/img/Icon.png" type="image/png"/>
         <link rel="stylesheet" href="/WASHY/css/style.css" type="text/css" media="screen" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <script src="/WASHY/js/script.js"></script>
     </head>
     <body>
         <div class="login">
             <div class="login-card">
                 <img src="/WASHY/img/Logo.png">
                 <h4>Washy Laundry Management System</h4>
-
+                
                 <form action="/WASHY/login.php" method="POST">
                     <input type="text" name="username" id="username" placeholder="Username" required><br>
                     <input type="password" name="password" id="password" placeholder="Password" required><br><br>
-                    <button type="submit">Login</button>
+
+                    <div id="errorMsg" style="color:red; margin-top:10px">
+                        <?= $errorMsg ?>
+                    </div>
+
+                    <button type="submit" onclick="return fn_ValLogin();">Login</button>
                 </form><br>
 
                 <h4>
