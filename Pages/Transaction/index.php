@@ -136,16 +136,15 @@
                             <td><?= $t['weight'] ?></td>
                             <td><?= $t['price'] ?></td>
                             <td>
-                                <form  action="/WASHY/Pages/Transaction/edit.php" method="POST">
-                                    <input type="hidden" name="id_transaksi" value=<?= $t['id_transaction'] ?>>
-                                    <div class="action-button">
-                                    <button type="submit" class="edit-button">EDIT
+                                <input type="hidden" name="id_transaksi" value=<?= $t['id_transaction'] ?>>
+                                <div class="action-button">
+                                    <button type="submit" class="edit-button">
+                                        <a href="/WASHY/Pages/Transaction/edit.php?id_transaction=<?= $t['id_transaction'] ?>">EDIT</a> 
                                     </button>
                                     <button class="delete-button">
-                                        DELETE
+                                        <a href="/WASHY/Pages/Transaction/delete.php?id_transaction=<?= $t['id_transaction'] ?>" onclick="return confirm('Yakin ingin hapus data transaksi ini?')">DELETE</a>
                                     </button>
                                 </div>
-                                </form>
                                 
                             </td>
                         </tr>

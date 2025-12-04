@@ -1,6 +1,6 @@
 <?php
     include("../../db.php");
-    $search=$_POST['id_transaksi'];
+    $search=$_GET['id_transaction'];
 
     $sql="SELECT * from transaction_data t join customer c 
         on (t.id_customer=c.id_customer) where 
