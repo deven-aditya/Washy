@@ -1,0 +1,572 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.icon-logo {
+    width: 5px;
+}
+
+body { 
+    background-color: #E2FEFB;
+    margin: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    
+}
+
+/* sidebar*/
+
+.sidebar { /*sidebar*/
+    background-color: #F8FFFE;
+    width: 180px;
+    height: 100vh;
+    position: fixed;
+    padding-left: 15px;
+    padding-top: 20px;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 120px;
+    align-items: center;
+    margin-left: 20px;
+}
+
+ul { /* utk sidebar*/
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0;
+}
+
+li {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.menu-main { /* menu bagian atasnya*/
+    flex-grow: 1;
+}
+
+.menu-settings { /* class utk yg bwh (account)*/
+    margin-bottom: 50px;
+}
+
+.menu-button {
+    width: 135px;
+    height: 40px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo-box { /* box utk logo*/
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    align-items: center;
+    background-color: #B0DEDF;
+}
+
+.menu-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #474747;
+    margin-left: 10px;
+}
+
+.menu-button:hover .logo-box {
+    background-color: #84c4c7;
+}
+
+.menu-button.active .logo-box {
+    background-color: #00B4B7;
+}
+
+.menu-button.active .menu-text {
+    color: #00B4B7;
+}
+
+.menu-settings:hover .logo-box {
+    background-color: #84c4c7;
+}
+
+.menu-settings.active .logo-box {
+    background-color: #00B4B7;
+}
+
+.menu-settings.active .menu-text {
+    color: #00B4B7;
+}
+
+.button-logo {
+    width: 19px;
+    height: 19px;
+    margin: 6px;
+}
+
+.button-sidebar {
+    display: flex; 
+    flex-direction: column; 
+    height: 100%;
+}
+
+/* content*/
+.content {
+    background-color: #F8FFFE;
+    margin-left: 210px;
+    margin-top: 20px;
+    border-radius: 10px;
+    min-height: calc(100vh - 10px);
+    width: calc(100% - 230px);
+    box-sizing: border-box;
+    padding: 20px;
+    padding-top: 10px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.page-title h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.page-title h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+}
+
+.add-btn {
+    background-color: #00B4B7;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 15px;
+    margin-top: -20px;
+    width: 180px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.add-btn:hover {
+    background-color: #84c4c7;
+}
+
+.search-section form{ /*gabungan searchbox dan search button*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-icon-box {
+    background-color: #00B4B7;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-icon-box:hover {
+    background-color: #84c4c7;
+}
+
+.search-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.search-customer-box {
+    border: 3px solid #00B4B7;
+    border-radius: 5px;
+    width: 220px;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 18px;
+    background-color: #caf6f8;
+}
+
+
+.search-customer-box::placeholder {
+    font-size: 18px;
+    margin-left: 8px;
+    color: #000000;
+}
+
+/* BREADCRUMBS */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #333;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* TABLE */
+.table-section {
+    padding-top: 20px;
+}
+
+table {
+    padding: 5px;
+    border-collapse: separate;
+    border-spacing: 0 7px; 
+    color: #ffffff;
+    width: 100%;
+}
+
+thead th {
+    background-color: #95b9ba;
+    padding: 10px 25px;
+    text-align: center;
+}
+
+thead th:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+thead th:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+tbody tr {
+    color: #000000;
+    text-align: center;
+}
+
+.action-button {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    gap: 15px;
+}
+
+.edit-button {
+    background-color:#ffdd00;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    padding: 9px;
+}
+
+.edit-button a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.delete-button a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.edit-button:hover {
+    background-color:#d5b900;
+}
+
+.delete-button {
+    background-color:#fe2216;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    padding: 9px;
+}
+
+.delete-button:hover {
+    background-color:#cf1c12;
+}
+
+/* FORM */
+.form-section {
+    border:1px solid #bbbbbb;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.dropdown {
+    border: 3px solid #00B4B7;
+    border-radius: 5px;
+    background-color: #caf6f8;
+    width: 500px;
+    height: 45px;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+.dropdown::placeholder {
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+option {
+    background-color: #caf6f8;
+}
+
+.input-box {
+    border: 3px solid #00B4B7;
+    border-radius: 5px;
+    background-color: #caf6f8;
+    width: 475px;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+.input-box::placeholder {
+    color: #000000;
+}
+.price {
+    color: #00B4B7;
+}
+
+.price h4 {
+    font-weight: 400;
+}
+
+.price h1 {
+    margin-top: -15px;
+}
+
+.input-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 475px;
+    gap: 15px;
+    margin-left: 10px;
+}
+
+.input-box-name {
+    border: 3px solid #00B4B7;
+    border-radius: 5px;
+    background-color: #caf6f8;
+    width: 215px;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+.input-box-name::placeholder {
+    color: #000000;
+}
+
+/* DASHBOARD */
+
+.income {
+    border: 3px solid #00B4B7;
+    border-radius: 5px;
+    background-color: #00B4B7;
+    width: 400px;
+    margin-left: 10px;
+    margin-top: 15px;
+    padding-left: 15px;
+}
+
+.income h4 {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.income h1 {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.reports {
+    display: flex;
+    gap: 15px;
+    margin-left: 5px;
+}
+
+.customer-count {
+    border: 1px solid #333;
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.transaction-total {
+    border: 1px solid #333;
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+/*LOGIN*/
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; 
+}
+
+.login-card {
+    height: 510px;
+    width: 425px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.login-card img {
+    margin-top: 15px;
+    width: 239px;
+    height: 95px;
+}
+
+.login-card h4 {
+    font-weight: 300;
+    margin-top: -15px;
+}
+
+.login input {
+    border: 0.78px solid #00B4B7;
+    border-radius: 8px;
+    background-color: #F1FCFA;
+    width: 365px;
+    height: 57px;
+    padding: 0 10px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.login button {
+    background-color: #00B4B7;
+    width: 144px;
+    height: 50px;
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 8px;
+}
+
+.login button:hover {
+    background-color: #84c4c7;
+}
+
+.login a {
+    color: #000;
+}
+
+/*REGISTER*/
+
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 150vh; 
+}
+
+.register-card {
+    height: 965px;
+    width: 750px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.register-card img{
+    margin-top: 15px;
+    margin-left: -600px;
+    width: 107px;
+    height: 42px;
+    justify-content: left ;
+}
+
+.register input {
+    border: 0.78px solid #00B4B7;
+    border-radius: 8px;
+    background-color: #F1FCFA;
+    width: 365px;
+    height: 57px;
+    padding: 0 10px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.input-name {
+    display: flex;
+    
+}
+
+/*ACCOUNT*/
+.account-name {
+    display: flex;
+    gap: 300px;
+}
+
+.account-field label {
+    font-size: 15px;
+    display: block;
+    margin-bottom: 0px;
+}
+
+.account-field p {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 0px;
+}
+
+.acc-edit-btn {
+    float: right;
+    background-color: #00B4B7;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 15px;
+    margin-top: -20px;
+    width: 180px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.acc-edit-btn:hover {
+    background-color: #84c4c7;
+}
