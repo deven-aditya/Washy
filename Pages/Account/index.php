@@ -92,7 +92,7 @@
             
             <div class="form-section">
                 <a href="/WASHY/Pages/Account/edit.php" class="acc-edit-btn">Edit</a>
-                <img class="profile" src="/WASHY/uploads/<?php echo $data["profile_photo"]; ?>" alt="Profile Photo" style="width: 100px; "><br><br>
+                <img class="profile" src="/WASHY/uploads/<?php echo $data["profile_photo"]; ?>" alt="Profile Photo"><br><br>
                 
                 <div class="account-name">
                     <div class="account-field">

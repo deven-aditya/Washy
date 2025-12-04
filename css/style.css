@@ -593,3 +593,10 @@ option {
 .acc-edit-btn:hover {
     background-color: #84c4c7;
 }
+
+.profile {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+}
