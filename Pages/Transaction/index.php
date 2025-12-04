@@ -2,20 +2,25 @@
     include("../../db.php");
 
     $search = $_GET['search'] ?? '';
-    if($search)
-    $search = $conn->real_escape_string($search);
 
     if($search)
     {
         $search = $conn->real_escape_string($search);
 
-        $sql="SELECT * from transaction_data t join customer c 
-        on (t.id_customer=c.id_customer) where 
-        c.first_name = ' %$search% ' ";
+        $sql = "
+            SELECT * from transaction_data t
+            JOIN customer c ON (t.id_customer=c.id_customer)
+            WHERE
+            c.first_name LIKE '%$search%' OR
+            c.last_name LIKE '%$search%' OR
+            t.service_type LIKE '%$search%' OR
+            t.price LIKE '%$search%' OR
+            t.weight LIKE '%$search%' OR
+            t.id_transaction LIKE '%$search%'
+        ";
         $query = $conn->query($sql);
     } else{
-        $query = $conn->query("SELECT * FROM transaction_data t join customer c 
-        on (t.id_customer=c.id_customer)");
+        $query = $conn->query("SELECT * FROM transaction_data t JOIN customer c ON t.id_customer=c.id_customer");
     }
 
     $trans=[];
@@ -24,7 +29,7 @@
         while($row=$query->fetch_assoc()){
             $trans[]=$row;
         }
-    }
+    } 
 
 ?>
 <!DOCTYPE html >
@@ -92,7 +97,7 @@
             <div class="page-header">
                 <div class="page-title">
                     <h1>TRANSACTION</h1>
-                <h3>24 Juni 2005</h3>
+                    <h3><?php echo date("d F Y"); ?></h3>
                 </div>
                 
                 <a href="/WASHY/Pages/Transaction/tambah.php" class="add-btn">+ Add New</a>
@@ -101,7 +106,7 @@
             <div class="page-body">
                 <div class="search-section">
                     <form method="GET">
-                        <input type="text" class="search-customer-box" id="search-customer" name="search-customer" placeholder="search"/>
+                        <input type="text" name="search" class="search-customer-box" id="search" value="<?= $_GET['search'] ?? '' ?>" placeholder="search"/>
                         
                         <button class="search-icon-box">
                             <img class="search-icon" src="/WASHY/img/search_icon.png"/>

@@ -24,13 +24,12 @@
 
     $customers = [];  
     
-    if($query->num_rows == 0) {
-        echo '<tr><td>Tidak Ada Data!</td></tr>';
-    } else {
+    if($query->num_rows != 0) {
         while($row = $query->fetch_assoc()) {
             $customers[] = $row;
         }
     }
+    
 ?>
 
 <!DOCTYPE html >
