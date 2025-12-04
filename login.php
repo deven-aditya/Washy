@@ -21,7 +21,7 @@
             header('Location: /WASHY/Pages/Dashboard/index.php');
             exit;
         } else {
-            $errorMsg =  "Username atau password salah!";
+            $errorMsg =  "Invalid Username or Password";
         }
     }
 

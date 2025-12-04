@@ -47,6 +47,7 @@ if(isset($_POST['submit']))
         <link rel="icon" class="icon-logo" href="/WASHY/img/Icon.png" type="image/png"/>
         <link rel="stylesheet" href="/WASHY/css/style.css" type="text/css" media="screen" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <script src="/WASHY/js/script.js"></script>
     </head>
     <body>
         <div class="register">
@@ -83,7 +84,9 @@ if(isset($_POST['submit']))
                         <label for="conf_password">Confirm Password</label><br>
                         <input type="password" name="conf_password" id="conf_password" class="input-box" placeholder="Confirm Password" required/><br><br><br>
 
-                        <button type="submit" name="submit" class="add-btn" value="Register">Register</button>
+                        <div id="errorMsgReg" style="color:red; text-align:center;"></div>
+
+                        <button type="submit" name="submit" class="add-btn" value="Register" onclick="return fn_ValRegister();">Register</button>
                     </div>
                     
                 </form><br>
