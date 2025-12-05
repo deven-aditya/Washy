@@ -23,6 +23,7 @@
         <link rel="icon" class="icon-logo" href="/WASHY/img/Icon.png" type="image/png"/>
         <link rel="stylesheet" href="/WASHY/css/style.css" type="text/css" media="screen" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <script src="/WASHY/js/script.js"></script>
     </head>
     <body>
         <div class="sidebar"> <!--jgn diubah-->
@@ -115,7 +116,9 @@
                     <label for="phone_number">Phone Number</label><br>
                     <input type="text" name="phone_number" id="phone_number" value="<?php echo $data['phone_number']; ?>" class="input-box" placeholder="Input Phone Number"/><br><br><br>
 
-                    <input type="submit" name="submit" class="add-btn" value="submit"/>
+                    <div id="errorMsgCus" style="color:red; text-align:left; margin-bottom: 20px;"></div>
+
+                    <input type="submit" name="submit" class="add-btn" value="submit" onclick="return ValCustomer();"/>
                 </form>
 
         </div>
