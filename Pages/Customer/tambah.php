@@ -6,6 +6,7 @@
         <link rel="icon" class="icon-logo" href="/WASHY/img/Icon.png" type="image/png"/>
         <link rel="stylesheet" href="/WASHY/css/style.css" type="text/css" media="screen" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <script src="/WASHY/js/script.js"></script>
     </head>
     <body>
         <div class="sidebar"> <!--jgn diubah-->
@@ -78,25 +79,27 @@
                     <div class="input-name">
                         <div class="input-group">
                             <label for="first_name">First Name</label><br>
-                        <input type="text" name="first_name" id="first_name" class="input-box-name" placeholder="First Name"/>
+                        <input type="text" name="first_name" id="first_name" class="input-box-name" placeholder="First Name" required/>
                         </div>
                         
                         <div class="input-group">
                             <label for="last_name">Last Name</label><br>
-                            <input type="text" name="last_name" id="last_name" class="input-box-name" placeholder="Last Name"/>
+                            <input type="text" name="last_name" id="last_name" class="input-box-name" placeholder="Last Name" required/>
                         </div>
                     </div><br>
 
                     <label for="house_address">House Address</label><br>
-                    <input type="text" name="house_address" id="house_address" class="input-box" placeholder="Input House Address"/><br><br>
+                    <input type="text" name="house_address" id="house_address" class="input-box" placeholder="Input House Address" required/><br><br>
 
                     <label for="email_address">Email Address</label><br>
-                    <input type="text" name="email_address" id="email_address" class="input-box" placeholder="Input Email Address"/><br><br>
+                    <input type="text" name="email_address" id="email_address" class="input-box" placeholder="Input Email Address" required/><br><br>
 
                     <label for="phone_number">Phone Number</label><br>
-                    <input type="text" name="phone_number" id="phone_number" class="input-box" placeholder="Input Phone Number"/><br><br><br>
+                    <input type="text" name="phone_number" id="phone_number" class="input-box" placeholder="Input Phone Number" required/><br><br><br>
 
-                    <input type="submit" class="add-btn"/>
+                    <div id="errorMsgCus" style="color:red; text-align:left; margin-bottom: 20px;"></div>
+
+                    <input type="submit" class="add-btn" onclick="return ValCustomer();"/>
                 </form>
         </div>
     </body>
