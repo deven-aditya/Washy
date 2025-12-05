@@ -95,7 +95,7 @@
                 <form action="/WASHY/Pages/Transaction/edit-proses.php" method="POST">
                     <input type="hidden" name="id_transaksi" value=<?= $trans[0]['id_transaction'] ?>>
                     <label for="nama_customer">Customer</label><br>
-                    <select class="dropdown" name="nama_customer" readonly>
+                    <select class="dropdown" name="nama_customer" id="nama_customer" readonly>
                         <?php foreach($trans as $c): ?>
                         <option value=<?php echo $c['first_name'].' '. $c['last_name']?>><?= $c['first_name'].' '. $c['last_name'] ?></option>
                         <?php  endforeach; ?>
@@ -110,7 +110,7 @@
                     </select><br><br>
 
                     <label for="weight">Laundry Weight</label><br>
-                    <input type="text" name="weight" class="input-box" placeholder="Input Laundry Weight" oninput="countPrice(document.getElementById('service_type').value, this.value)" />
+                    <input type="text" name="weight" class="input-box" id="weight" placeholder="Input Laundry Weight" oninput="countPrice(document.getElementById('service_type').value, this.value)"/>
                     <br><br>
 
                     <div class="price">
@@ -118,7 +118,9 @@
                         <h1 id="count_price">Rp <?= $trans[0]['price'] ?></h1>
                     </div><br>
 
-                    <input type="submit" name="submit" class="add-btn"/>
+                    <div id="errorMsgTrans" style="color:red; text-align:left; margin-bottom: 20px;"></div>
+
+                    <input type="submit" name="submit" class="add-btn" onclick="return ValTrans();"/>
 
                 </form>
 
