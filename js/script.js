@@ -133,3 +133,60 @@ function countPrice(service_type, weight)
 
     priceBox.innerHTML = "Rp " + price.toLocaleString();
 }
+
+function ValCustomer()
+{
+    var sMsg = "";
+    const errorBox = document.getElementById("errorMsgCus");
+    errorBox.innerHTML = "";
+
+    const first_name = document.getElementById("first_name").value;
+    const last_name = document.getElementById("last_name").value;
+    const house_address = document.getElementById("house_address").value;
+    const email_address = document.getElementById("email_address").value;
+    const phone_number = document.getElementById("phone_number").value;
+
+    if(phone_number == "")
+    {
+        sMsg = "\nYou haven't filled in customer's Phone Number";
+    }
+
+    if(email_address == "")
+    {
+        sMsg = "\nYou haven't filled in customer's Email Address";
+    }
+
+    if(house_address == "")
+    {
+        sMsg = "\nYou haven't filled in customer's House Address";
+    }
+
+    if(last_name == "")
+    {
+        sMsg = "\nYou haven't filled in customer's Last Name";
+    }
+
+    if(first_name == "")
+    {
+        sMsg = "\nYou haven't filled in customer's First Name";
+    }
+
+    if(first_name == "" && last_name == "" && house_address == "" && email_address == "" && phone_number == "")
+    {
+        sMsg = "\nYou haven't filled in anything";
+    }
+
+    if (!validateEmail(email_address) && email_address != "")
+    {
+        sMsg = "Please enter a valid email address";
+    }
+
+    if(sMsg != "")
+    {
+        errorBox.innerHTML = sMsg;
+        return false;
+    } else
+    {
+        return true;
+    }
+}

@@ -12,10 +12,10 @@ $house_address = trim($_POST['house_address'] ?? '');
 $email_address = trim($_POST['email_address'] ?? '');
 $phone_number = trim($_POST['phone_number'] ?? '');
 
-if (!$first_name || !$last_name || !$house_address || !$email_address || !$phone_number) {
-    echo json_encode(["status" => "error", "message" => "Masih ada yang kosong atau belum diisi"]);
-    exit;
-}
+// if (!$first_name || !$last_name || !$house_address || !$email_address || !$phone_number) {
+//     echo json_encode(["status" => "error", "message" => "Masih ada yang kosong atau belum diisi"]);
+//     exit;
+// }
 
  
 

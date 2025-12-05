@@ -94,13 +94,13 @@
                     <div class="customer-count">
                         <img class="report-icon" src="/WASHY/img/customer_report.png"/>
                         <h1>Customers</h1>
-                        <h2><?= $jumlahTransaksi ?></h2>
+                        <h2><?= $jumlahCustomer ?></h2>
                     </div>
 
                     <div class="transaction-total">
                         <img class="report-icon" src="/WASHY/img/transaction_report.png"/>
                         <h1>Transactions</h1>
-                        <h2><?= $jumlahCustomer ?></h2>
+                        <h2><?= $jumlahTransaksi ?></h2>
                     </div>
                 </div>
             </div>
