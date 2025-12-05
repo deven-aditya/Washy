@@ -510,13 +510,11 @@ option {
     color: #000;
 }
 
-/*REGISTER*/
-
+/* REGISTER */
 .register {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     min-height: 100vh;
     padding: 20px;
 }
@@ -531,9 +529,9 @@ option {
     text-align: left;
 }
 
-.register-card img{
-    width: 107px;
-    height: 42px;
+.register-card img {
+    width: 120px;
+    height: 48px;
 }
 
 .register-card h1 {
@@ -554,7 +552,7 @@ option {
     height: 40px;
     padding: 0 10px;
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .register button {
