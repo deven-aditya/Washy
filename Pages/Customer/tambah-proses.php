@@ -18,7 +18,7 @@ $phone_number = trim($_POST['phone_number'] ?? '');
 // }
 
 $sql = "INSERT INTO customer (first_name, last_name, house_address, email_address, phone_number)
-        VALUES (?, ?, ?, ?, ?)";
+        VALUES (?, ?, ?, ?, ?)";//sql
 
 $stmt = $conn->prepare($sql);
     if (!$stmt) {
