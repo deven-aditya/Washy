@@ -619,3 +619,20 @@ option {
     border-radius: 50%;
     object-fit: cover;
 }
+
+.photo-btn {
+    display: inline-block;
+    background-color: #00B4B7;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 15px;
+    width: 110px;
+    justify-content: center;
+    display: flex;
+}
+
+.photo-btn:hover {
+    background-color: #84c4c7;
+}

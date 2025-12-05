@@ -103,7 +103,8 @@
                     <input type="hidden" name="id" value="<?php echo $id_user; ?>">
                     
                     <img class="profile" src="/WASHY/uploads/<?php echo $data["profile_photo"]; ?>" alt="Profile Photo"><br>
-                    <input type="file" name="profile_photo">
+                    <input type="file" name="profile_photo" id="profile_photo" hidden>
+                    <label for="profile_photo" class="photo-btn">Upload Foto</label>
                     
                     <br><br>
                     <div class="input-name">
