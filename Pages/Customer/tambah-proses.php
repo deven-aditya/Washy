@@ -17,8 +17,7 @@ if (!$first_name || !$last_name || !$house_address || !$email_address || !$phone
     exit;
 }
 
-$sql = "INSERT INTO customer (first_name, last_name, house_address, email_address, phone_number)
-        VALUES (?, ?, ?, ?, ?)";
+ 
 
 $stmt = $conn->prepare($sql);
     if (!$stmt) {
