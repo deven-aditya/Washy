@@ -190,3 +190,48 @@ function ValCustomer()
         return true;
     }
 }
+
+function ValTrans()
+{
+    var sMsg = "";
+    const errorBox = document.getElementById("errorMsgTrans");
+    errorBox.innerHTML = "";
+
+    const nama_customer = document.getElementById("nama_customer").value;
+    const service_type = document.getElementById("service_type").value;
+    const weight = document.getElementById("weight").value;
+
+    if(weight == "")
+    {
+        sMsg = "\nYou haven't filled in customer's laundry weight";
+    }
+
+    if(service_type == "null")
+    {
+        sMsg = "\nYou haven't filled in customer's service type";
+    }
+
+    if(nama_customer == "null")
+    {
+        sMsg = "\nYou haven't filled in customer's name";
+    }
+
+    if(weight == "" && service_type == "null" && nama_customer == "null")
+    {
+        sMsg = "\nYou haven't filled in anything";
+    }
+
+    if(weight < 1 && weight != "")
+    {
+        sMsg = "\nLaundry Weight can't be less than 0 kg";
+    }
+
+    if(sMsg != "")
+    {
+        errorBox.innerHTML = sMsg;
+        return false;
+    } else
+    {
+        return true;
+    }
+}
