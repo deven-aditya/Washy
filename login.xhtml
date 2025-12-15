@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Washy</title>
+        <link rel="icon" class="icon-logo" href="/WASHY/img/Icon.png" type="image/png"/>
+        <link rel="stylesheet" href="/WASHY/css/style.css" type="text/css" media="screen" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <script type="text/javascript" src="/WASHY/js/script.js"></script>
+    </head>
+    <body onload="showLoginError();">
+        <div class="login">
+            <div class="login-card">
+                <img src="/WASHY/img/Logo.png" />
+                <h4>Washy Laundry Management System</h4>
+                
+                <form action="/WASHY/api/login.php" method="POST" onsubmit="return fn_ValLogin();">
+                    <input type="text" name="username" id="username" placeholder="Username"  /><br />
+                    <input type="password" name="password" id="password" placeholder="Password"  /><br /><br />
+
+                    <div id="errorMsg" style="color:red; margin-top:10px"></div>
+
+                    <button type="submit">Login</button>
+                </form><br />
+
+                <h4>
+                    Register <a href="/WASHY/register.xhtml">here</a>
+                </h4>
+            </div>
+        </div>
+    </body>
+</html>

@@ -23,7 +23,8 @@
 ?>
 
 <!DOCTYPE html >
-<html>    <head>
+<html>
+    <head>
         <meta charset="UTF-8" />
         <title>Washy</title>
         <link rel="icon" class="icon-logo" href="/WASHY/img/Icon.png" type="image/png"/>

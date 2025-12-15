@@ -1,3 +1,13 @@
+function showLoginError()
+{
+    const errorBox = document.getElementById("errorMsg");
+
+    if(window.location.search.indexOf("error=1") !== -1)
+    {
+        errorBox.innerHTML = "Invalid Username or Password";
+    }
+}
+
 function fn_ValLogin()
 {
     var sMsg = "";
@@ -26,6 +36,26 @@ function fn_ValLogin()
     } else
     {
         return true;
+    }
+}
+
+function showRegisterError()
+{
+    const errorBox = document.getElementById("errorMsgReg");
+
+    if(!errorBox) return;
+
+    const searchBox = window.location.search;
+
+    if(searchBox.indexOf("error=user") !== -1)
+    {
+        errorBox.innerHTML = "Username is already used";
+    } else if(searchBox.indexOf("error=email") !== -1)
+    {
+        errorBox.innerHTML = "Email already registered";
+    } else if(searchBox.indexOf("error=pass") !== -1)
+    {
+        errorBox.innerHTML = "Password does not match";
     }
 }
 
