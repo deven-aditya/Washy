@@ -1,45 +1,21 @@
-<?php
-    require '../../db.php';
-
-    session_start();
-
-    if(!isset($_SESSION['id_user']))
-    {
-        header("Location: /WASHY/login.php");
-        exit;
-    }
-
-    $id_user = $_SESSION['id_user'];
-
-    $show = $conn->query("SELECT * FROM users WHERE id_user = '$id_user'");
-
-    if($show->num_rows == 0)
-    {
-        echo'<script>window.history.back()</script>';
-    } else 
-    {
-        $data = $show->fetch_assoc();
-    }
-
-?>
-
-<!DOCTYPE html >
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">  
     <head>
-        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Washy</title>
         <link rel="icon" class="icon-logo" href="/WASHY/img/Icon.png" type="image/png"/>
         <link rel="stylesheet" href="/WASHY/css/style.css" type="text/css" media="screen" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
     </head>
-    <body>
+    <body onload="loadAccount()">
         <div class="sidebar"> <!--jgn diubah-->
             <img class="logo" src="/WASHY/img/Logo.png"/>
 
             <div class="button-sidebar">
                 <ul class="menu menu-main">
                     <li>
-                        <a href="/Washy/Pages/Dashboard/index.php" class="menu-button">
+                        <a href="/Washy/Pages/Dashboard/index.xhtml" class="menu-button">
                             <div class="logo-box">
                                 <img class="button-logo" src="/WASHY/img/dashboard_button.png"/>
                             </div>
@@ -50,7 +26,7 @@
                         
                     </li>
                     <li>
-                        <a href="/Washy/Pages/Customer/index.php" class="menu-button">
+                        <a href="/Washy/Pages/Customer/index.xhtml" class="menu-button">
                             <div class="logo-box">
                                 <img class="button-logo" src="/WASHY/img/customer_button.png"/>
                             </div>
@@ -60,7 +36,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/Washy/Pages/Transaction/index.php" class="menu-button">
+                        <a href="/Washy/Pages/Transaction/index.xhtml" class="menu-button">
                             <div class="logo-box">
                                 <img class="button-logo" src="/WASHY/img/transaction_button.png"/>
                             </div>
@@ -72,7 +48,7 @@
                 </ul>
                 <ul class="menu menu-settings active">
                     <li>
-                        <a href="/Washy/Pages/Account/index.php" class="menu-button">
+                        <a href="/Washy/Pages/Account/index.xhtml" class="menu-button">
                             <div class="logo-box">
                                 <img class="button-logo" src="/WASHY/img/account_button.png"/>
                             </div>
@@ -89,8 +65,8 @@
             <div class="page-header">
                 <div class="page-title">
                     <div class="breadcrumb">
-                        <a href="/WASHY/Pages/Account/index.php">Account</a>
-                        <span>></span>
+                        <a href="/WASHY/Pages/Account/index.xhtml">Account</a>
+                        <span>&gt;</span>
                         <p class="current">Edit</p>
                     </div>
                     <h1>Edit Account</h1>
@@ -100,38 +76,60 @@
             
             <div class="form-section">
                 <form action="/WASHY/Pages/Account/edit-proses.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?php echo $id_user; ?>">
+                    <input type="hidden" name="id" id="id_user" />
                     
-                    <img class="profile" src="/WASHY/uploads/<?php echo $data["profile_photo"]; ?>" alt="Profile Photo"><br>
-                    <input type="file" name="profile_photo" id="profile_photo" hidden>
+                    <img class="profile" src="" alt="Profile Photo" id="profilePhoto"/><br />
+                    <input type="file" name="profile_photo" id="profile_photo" hidden="hidden" />
                     <label for="profile_photo" class="photo-btn">Upload Foto</label>
                     
-                    <br><br>
+                    <br /><br />
                     <div class="input-name">
                         <div class="input-group">
-                            <label for="first_name">First Name</label><br>
-                            <input type="text" name="first_name" id="first_name" value="<?php echo $data['first_name']; ?>" class="input-box-name" placeholder="First Name" required/>
+                            <label for="first_name">First Name</label><br />
+                            <input type="text" name="first_name" id="first_name" class="input-box-name" placeholder="First Name" required="required"/>
                         </div>
                         
                         <div class="input-group">
-                            <label for="last_name">Last Name</label><br>
-                            <input type="text" name="last_name" id="last_name" value="<?php echo $data['last_name']; ?>" class="input-box-name" placeholder="Last Name" required/>
+                            <label for="last_name">Last Name</label><br />
+                            <input type="text" name="last_name" id="last_name" class="input-box-name" placeholder="Last Name" required="required"/>
                         </div>
-                    </div><br>
+                    </div><br />
 
-                    <label for="email_address">Email Address</label><br>
-                    <input type="text" name="email_address" id="email_address" value="<?php echo $data['email_address']; ?>" class="input-box" placeholder="Input Email Address" required/><br><br>
+                    <label for="email_address">Email Address</label><br />
+                    <input type="text" name="email_address" id="email_address" class="input-box" placeholder="Input Email Address" required="required"/><br /><br />
 
-                    <label for="phone_number">Phone Number</label><br>
-                    <input type="text" name="phone_number" id="phone_number" value="<?php echo $data['phone_number']; ?>" class="input-box" placeholder="Input Phone Number" required/><br><br>
+                    <label for="phone_number">Phone Number</label><br />
+                    <input type="text" name="phone_number" id="phone_number" class="input-box" placeholder="Input Phone Number" required="required"/><br /><br />
 
-                    <label for="username">Username</label><br>
-                    <input type="text" name="username" id="username" value="<?php echo $data['username']; ?>" class="input-box" placeholder="Input Username" required/><br><br><br>
+                    <label for="username">Username</label><br />
+                    <input type="text" name="username" id="username" class="input-box" placeholder="Input Username" required="required"/><br /><br /><br />
 
                     <input type="submit" name="submit" class="add-btn" value="Submit"/>
                 </form>
             </div>
         </div>
         
+        <script type="text/javascript">
+            //<![CDATA[
+            function loadAccount()
+            {
+                fetch("/WASHY/api/get-account.php").then(res => {
+                    if(res.status === 401)
+                    {
+                        window.location.href = "/WASHY/login.xhtml";
+                        return;   
+                    }
+                    return res.json();
+                }).then(u => {
+                    document.getElementById("first_name").value = u.first_name;
+                    document.getElementById("last_name").value = u.last_name;
+                    document.getElementById("username").value = u.username;
+                    document.getElementById("email_address").value = u.email_address;
+                    document.getElementById("phone_number").value = u.phone_number;
+                    document.getElementById("profilePhoto").src = "/WASHY/uploads/" + u.profile_photo;
+                })
+            }
+            //]]>
+        </script>
     </body>
 </html>
