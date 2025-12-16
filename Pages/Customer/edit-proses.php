@@ -2,7 +2,7 @@
 require '../../db.php';
 
 if($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /WASHY/Pages/Customer/index.php');
+    header('Location: /WASHY/Pages/Customer/index.xhtml');
     exit;
 }
 
@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
     $stmt->bind_param("sssssi", $first_name, $last_name, $house_address, $email_address, $phone_number, $id_customer);
 
     if ($stmt->execute()) {
-        header("Location: /WASHY/Pages/Customer/index.php?msg=created");
+        header("Location: /WASHY/Pages/Customer/index.xhtml?msg=created");
         exit; 
     } else {
         echo "Error: " . $stmt->error;
@@ -35,6 +35,6 @@ if(isset($_POST['submit'])){
 
 }else{ 
     echo json_encode(["status" => "error", "message" => $stmt->error]);
-    header('Location: /WASHY/Pages/Customer/index.php');
+    header('Location: /WASHY/Pages/Customer/index.xhtml');
     exit;
 }
