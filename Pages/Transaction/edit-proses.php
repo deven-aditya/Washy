@@ -3,7 +3,7 @@
 require '../../db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /WASHY/Pages/Transaction/edit.php');
+    header('Location: /WASHY/Pages/Transaction/edit.xhtml');
     exit;
 }
 
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
     $stmt->bind_param("dsdi", $weight, $service_type, $price, $id_trans);
 
     if ($stmt->execute()) {
-        header("Location: /WASHY/Pages/Transaction/index.php?msg=updated");
+        header("Location: /WASHY/Pages/Transaction/index.xhtml?msg=updated");
         exit;
     } else {
         echo "Error: " . $stmt->error;
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 
 } else {
     echo json_encode(["status" => "error", "message" => "Invalid request"]);
-    header('Location: /WASHY/Pages/Transaction/index.php');
+    header('Location: /WASHY/Pages/Transaction/index.xhtml');
     exit;
 }
 

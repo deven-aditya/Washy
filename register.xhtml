@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN">    
+    <head>
+        <meta charset="UTF-8" />
+        <title>Washy</title>
+        <link rel="icon" class="icon-logo" href="/WASHY/img/Icon.png" type="image/png"/>
+        <link rel="stylesheet" href="/WASHY/css/style.css" type="text/css" media="screen" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <script type="text/javascript" src="/WASHY/js/script.js"></script>
+    </head>
+    <body onload="showRegisterError();">
+        <div class="register">
+            <div class="register-card">
+                <img src="/WASHY/img/Logo.png" />
+                <h1>Create Your Account</h1>
+
+                <form action="/WASHY/api/register.php" method="POST" onsubmit="return fn_ValRegister();">
+                    <div class="form-section">
+                        <div class="input-name">
+                            <div class="input-group">
+                                <label for="first_name">First Name</label><br />
+                                <input type="text" name="first_name" id="first_name" class="input-box-name" placeholder="First Name" />
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="last_name">Last Name</label><br />
+                                <input type="text" name="last_name" id="last_name" class="input-box-name" placeholder="Last Name" />
+                            </div>
+                        </div><br />
+
+                        <label for="email_address">Email Address</label><br />
+                        <input type="text" name="email_address" id="email_address" class="input-box" placeholder="Input Email Address" /><br /><br />
+
+                        <label for="phone_number">Phone Number</label><br />
+                        <input type="text" name="phone_number" id="phone_number" class="input-box" placeholder="Input Phone Number" /><br /><br />
+
+                        <label for="username">Username</label><br />
+                        <input type="text" name="username" id="username" class="input-box" placeholder="Input Username"/><br /><br />
+
+                        <label for="password">Password</label><br />
+                        <input type="password" name="password" id="password" class="input-box" placeholder="Input Password" /><br /><br />
+
+                        <label for="conf_password">Confirm Password</label><br />
+                        <input type="password" name="conf_password" id="conf_password" class="input-box" placeholder="Confirm Password" /><br /><br /><br />
+
+                        <div id="errorMsgReg" style="color:red; text-align:center;"></div>
+
+                        <button type="submit" name="submit" class="add-btn" value="Register">Register</button>
+                    </div>
+                    
+                </form><br />
+
+                <h4>
+                    Already have an account? <a href="/WASHY/login.xhtml">Login</a>
+                </h4>
+            </div>
+        </div>
+    </body>
+</html>

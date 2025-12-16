@@ -63,7 +63,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("isdd", $id_customer, $service_type, $weight, $price);
 
 if ($stmt->execute()) {
-    header("Location: /WASHY/Pages/Transaction/index.php?msg=created");
+    header("Location: /WASHY/Pages/Transaction/index.xhtml?msg=created");
     exit;
 } else {
     echo "Error: " . $stmt->error;

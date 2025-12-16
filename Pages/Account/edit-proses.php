@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
     $stmt->bind_param("ssssssi", $first_name, $last_name, $email_address, $phone_number, $username, $filename, $id_user);
 
     if ($stmt->execute()) {
-        header("Location: /WASHY/Pages/Account/index.php?msg=created");
+        header("Location: /WASHY/Pages/Account/index.xhtml?msg=created");
         exit; 
     } else {
         echo "Error: " . $stmt->error;
