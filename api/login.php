@@ -18,7 +18,7 @@
         {
             $_SESSION['id_user'] = $user['id_user']; //ini diganti jadi id_user
 
-            header('Location: /WASHY/Pages/Dashboard/index.php');
+            header('Location: /WASHY/Pages/Dashboard/index.xhtml');
             exit;
         } else {
             header("Location: ../login.xhtml?error=1");
